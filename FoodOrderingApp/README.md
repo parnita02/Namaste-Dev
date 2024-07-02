@@ -1,0 +1,12 @@
+Layout
+-> Header
+-> localStorage
+-> navItems
+-> Main/bodyParser
+-> searchBar
+-> cardContainer
+-> Restaurant card
+->image
+->name of res, start rating
+-> footer
+->copyright
