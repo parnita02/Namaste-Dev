@@ -16,6 +16,7 @@ body{
 }
 .header{
     padding: 0rem 0.5rem;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;

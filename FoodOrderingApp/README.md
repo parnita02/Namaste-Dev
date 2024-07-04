@@ -17,4 +17,8 @@ Layout
 -> useState() -superPowerful state variable, named import, it maintains the state of your variable
 
 second parameter is used toupdate the list
+
 -> useEffect()
+
+comes from react library and has named import
+a callback function with the dependency array
