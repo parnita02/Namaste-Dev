@@ -117,12 +117,33 @@ width: 98%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 150px)) ;
    justify-content: center;
+   
   
 
 }
-.shimmer-card{
+.shimmer-card-container{
+    padding: 10px;
 width: 250px;
-height: 300px;
-background-color: rgb(216, 216, 216);
+height: 280px;
+border: 1px solid rgb(225, 225, 225);
+/* box-shadow: 1px 1px 1px rgb(150, 150, 150); */
 margin: 10px 0;
+}
+.shimmer-card{
+    margin: 5px;
+    height: 450%;
+    height: 65%;
+    background-color: rgb(234, 234, 234);
+}
+.shimmer-card-container .text{
+    margin: 15px 5px;
+    width: 85%;
+    height: 14px;
+    background-color:rgb(234, 234, 234);
+}
+.filter{
+    display: flex;
+}
+.search{
+    margin: 20px ;
 }
