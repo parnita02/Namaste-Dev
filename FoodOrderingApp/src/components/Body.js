@@ -23,12 +23,12 @@ const Body = () => {
     console.log(json);
 
     setNewResList(
-      json.data.success.cards[3].gridWidget.gridElements.infoWithStyle
-        .restaurants
+      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
     );
     setfilteredRestaurant(
-      json.data.success.cards[3].gridWidget.gridElements.infoWithStyle
-        .restaurants
+      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
     );
   };
 
@@ -41,6 +41,7 @@ const Body = () => {
           <input
             type="text"
             className="search-btn"
+            placeholder="search here"
             value={searchTxt}
             onChange={(e) => {
               setsearchTxt(e.target.value);
