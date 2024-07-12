@@ -165,3 +165,20 @@ margin: 10px 0;
 .search-btn{
     padding: 1.3px;
 }
+.NavItems button{
+  padding: 5px 15px;
+  background-color: rgb(145, 145, 74);
+  border: none;
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 3px black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.NavItems button:hover{
+    background-color: rgb(98, 98, 47);
+    transform: scale(1.05);
+    box-shadow: 1px 1px 5px black;
+}
