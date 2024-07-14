@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import cartlogo from "../cartlogo.png";
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
@@ -13,10 +14,14 @@ const Header = () => {
       <div className="NavItems-conatiner">
         <ul className="NavItems">
           <li>
-            <a />
+            <Link to="/">Home</Link>
           </li>
-          <li>About Us</li>
-          <li>Conatct Us</li>
+          <li>
+            <Link to="/about">AboutUs</Link>
+          </li>
+          <li>
+            <Link to="/contact">ConatctUs</Link>
+          </li>
           <li>
             <img className="cartlogo" src={cartlogo} />
           </li>

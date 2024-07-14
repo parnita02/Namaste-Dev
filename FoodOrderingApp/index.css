@@ -5,7 +5,7 @@
 }
 .root{
     height: 100vh;
-        width: 100vw;
+        max-width: 100vw;
 }
 body{
     margin: 0;
@@ -25,20 +25,41 @@ background: rgb(0, 0, 0);
 }
 .logo{
     height: 4rem;
+    transition: all 1s;
 
+}
+.logo:hover{
+    transform: scale(1.2);
 }
 .NavItems{
     display: flex;
 
 }
-.NavItems li{
-    padding: 1rem;
+.NavItems li {
+    padding: 1rem 0.5rem;
     margin: 1px;
     list-style-type: none;
-    font-size: 1.2rem;
+    
+   
 }
+.NavItems li a{
+    text-decoration: none;
+    cursor: pointer;
+    /* font-weight: bold; */
+    font-size: 1.4rem;
+    color: black;
+    padding: 5px 10px;
+}
+.NavItems li a:hover{
+    background-color:rgb(235, 233, 204);
+    border-radius: 5px;
+}
+
 .cartlogo{
     height: 1.8rem;
+}
+.cartlogo:hover{
+    transform: scale(1.1);
 }
 .filter-btn{
 padding: 7px 20px;

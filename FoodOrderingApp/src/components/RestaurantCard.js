@@ -13,13 +13,7 @@ const RestaurantCard = (props) => {
   } = { ...resdata.info, ...resdata.info.sla };
   return (
     <div className="res-card">
-      <img
-        className="foodImage"
-        src={CDN_URL
-           +
-          cloudinaryImageId
-        }
-      />
+      <img className="foodImage" src={CDN_URL + cloudinaryImageId} />
       <div className="card-data">
         <h3>{name}</h3>
         <h4>{cuisines[0] + ", " + cuisines[1]}</h4>

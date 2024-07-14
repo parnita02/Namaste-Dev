@@ -22,3 +22,8 @@ second parameter is used toupdate the list
 
 comes from react library and has named import
 a callback function with the dependency array
+
+# There are two types of routing
+
+-> Client Side Routing
+-> server side routing

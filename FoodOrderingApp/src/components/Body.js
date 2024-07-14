@@ -17,7 +17,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=24.5385627&lng=81.326189"
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=24.5399253&lng=81.3261253"
     );
     const json = await data.json();
     console.log(json);
