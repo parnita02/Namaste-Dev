@@ -258,7 +258,10 @@ padding: 2rem;
 
 .userAbout{
     border: 1px solid black;
-    width: 38%;
     padding: 20px;
     margin: 10px;
+}
+.userAbout img{
+    width: 20vw;
+    
 }
