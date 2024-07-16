@@ -5,23 +5,7 @@ import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants.js";
 
 const RestaurantPage = () => {
-  const [resMenuInfo, setresMenuInfo] = useState(null);
-
   const { resid } = useParams();
-  console.log(resid);
-  useEffect(() => {
-    restaurantMenuFetch();
-  }, []);
-
-  const restaurantMenuFetch = async () => {
-    const datafetch = await fetch(
-      MENU_API + resid
-      // "&catalog_qa=undefined&submitAction=ENTER"
-    );
-    const json = await datafetch.json();
-    console.log(json);
-    setresMenuInfo(json?.data);
-  };
 
   if (resMenuInfo == null) {
     return <Shimmer />;
