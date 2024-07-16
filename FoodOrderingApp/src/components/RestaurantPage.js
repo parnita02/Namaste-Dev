@@ -1,31 +1,74 @@
 import Shimmer from "./Shimmer.js";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { MENU_API } from "../utils/constants.js";
 
 const RestaurantPage = () => {
   const [resMenuInfo, setresMenuInfo] = useState(null);
+
+  const { resid } = useParams();
+  console.log(resid);
   useEffect(() => {
     restaurantMenuFetch();
   }, []);
 
   const restaurantMenuFetch = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=24.5499426&lng=81.3259175&restaurantId=118068&submitAction=ENTER"
+    const datafetch = await fetch(
+      MENU_API + resid
+      // "&catalog_qa=undefined&submitAction=ENTER"
     );
-    const jsondata = await data.json();
-    console.log(jsondata);
-    setresMenuInfo(jsondata.data);
+    const json = await datafetch.json();
+    console.log(json);
+    setresMenuInfo(json?.data);
   };
 
+  if (resMenuInfo == null) {
+    return <Shimmer />;
+  }
   // destructuring
-  const { name, cuisines, costForTwoMessage } =
-    resMenuInfo?.cards[2]?.card?.card?.info;
+  const {
+    name,
+    cuisines,
+    costForTwoMessage,
+    avgRating,
+    totalRatingsString,
+    aggregatedDiscountInfoV2,
+  } = {
+    ...resMenuInfo?.cards[2]?.card?.card?.info,
+  };
 
-  return resMenuInfo == null ? (
-    <Shimmer />
-  ) : (
-    <div>
+  const { cards } = {
+    ...resMenuInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR,
+  };
+
+  return (
+    <div className="restaurantMenuCard">
       <h2>{name}</h2>
-      <h3>{cuisines}</h3>
+      <div className="offer">
+        <h3>{aggregatedDiscountInfoV2.header}</h3>
+      </div>
+      <div className="restaurantMenuCardDetail">
+        <h4>
+          <Link to="">{cuisines[0]}</Link>, <Link to=""> {cuisines[1]}</Link>
+        </h4>
+        <h4>{costForTwoMessage}</h4>
+        <h4>{avgRating} star</h4>
+        <h6>{totalRatingsString}</h6>
+      </div>
+
+      <h2>Menu</h2>
+      <div className="menu">
+        {cards.map((val) =>
+          val?.card?.card?.itemCards?.map((item) => (
+            <div className="menucard">
+              <h3>{item?.card?.info?.name}</h3>
+              <h4>{item?.card?.info?.description}</h4>
+              <h4>Rs. {item?.card?.info?.price / 100}</h4>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };

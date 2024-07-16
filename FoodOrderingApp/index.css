@@ -96,6 +96,10 @@ width: 98%;
     grid-template-columns: repeat(auto-fit, minmax(280px, 150px));
    justify-content: center;
 }
+.res-container a{
+    text-decoration: none;
+    color: black;
+}
 .res-card {
 
     display: flex;
@@ -203,3 +207,52 @@ margin: 10px 0;
     transform: scale(1.05);
     box-shadow: 1px 1px 5px black;
 }
+.restaurantMenuCard h2{
+margin:10px 39px;
+text-align: center;
+}
+
+.restaurantMenuCardDetail{
+  display: flex;
+  flex-direction: column;
+   padding: 8px;
+    width: 50%;
+    height: 20vh;
+    margin: 15px auto;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 10px;
+    gap: 5px;
+    box-shadow: 1px 1px 30px rgb(181, 181, 181);
+}
+.restaurantMenuCard h4, h6{
+    color: rgb(79, 79, 79);
+    font-weight: lighter;
+}
+.restaurantMenuCardDetails h4, a{
+    color: red;
+    font-size: 11px;
+    font-weight: bold;
+}
+.offer{
+    margin: auto;
+    width: 15%;
+    padding: 8px;
+    border-radius: 5px;
+    /* box-shadow: 1px 1px 5px rgb(120, 120, 120); */
+    background: rgb(210, 210, 109);
+    background: linear-gradient(90deg, rgba(210, 210, 109, 0.9321148825065274) 0%, rgba(255, 0, 0, 0) 100%);
+}
+.menu{
+    display: grid;
+    width: 70%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.menucard{
+background: rgb(210, 210, 109);
+    background: linear-gradient(90deg, rgba(210, 210, 109, 0.9321148825065274) 0%, rgba(210, 206, 111, 0.6869565217391305) 6%, rgba(206, 136, 136, 0) 100%);
+padding: 2rem;
+}
+
