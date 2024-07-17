@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //Local state variable-Super Powerful variable for that we use hooks
@@ -32,6 +33,20 @@ const Body = () => {
         ?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus == false) {
+    return (
+      <div className="internet">
+        <div className="internetresponse">
+          <h1>Oops!!</h1>
+          <h2>Looks Like you're Offline</h2>
+          <h3>Check your Internet Connection </h3>
+        </div>
+      </div>
+    );
+  }
 
   return newResList.length == 0 ? (
     <Shimmer />

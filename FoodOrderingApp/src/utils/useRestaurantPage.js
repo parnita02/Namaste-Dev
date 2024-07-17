@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { MENU_API } from "./constants";
 
 const useRestaurantPage = (resid) => {
@@ -12,8 +13,9 @@ const useRestaurantPage = (resid) => {
   const fetchData = async () => {
     const data = await fetch(MENU_API + resid);
     const json = await data.json();
-    setResInfo(json);
+    setResInfo(json.data);
   };
 
   return resInfo;
 };
+export default useRestaurantPage;

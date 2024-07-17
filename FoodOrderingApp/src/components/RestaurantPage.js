@@ -1,11 +1,11 @@
 import Shimmer from "./Shimmer.js";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants.js";
+import useRestaurantPage from "../utils/useRestaurantPage";
 
 const RestaurantPage = () => {
   const { resid } = useParams();
+  const resMenuInfo = useRestaurantPage(resid);
 
   if (resMenuInfo == null) {
     return <Shimmer />;
