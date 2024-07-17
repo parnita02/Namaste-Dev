@@ -101,14 +101,13 @@ width: 98%;
     color: black;
 }
 .res-card {
-
+    
     display: flex;
     flex-direction: column;
-    place-self: center;
     /* height: 17rem; */
     width: 14rem;
     box-shadow: 0px 1px 2px rgb(152, 152, 152);
-    margin: 10px 0;
+    margin: 10px auto;
 
 }
 
