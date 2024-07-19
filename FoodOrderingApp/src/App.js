@@ -1,17 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import AboutUs from "./components/AboutUs";
+import { lazy, useState } from "react";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantPage from "./components/RestaurantPage";
+const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="app w-full">
       <Header />
       <Outlet />
       <Footer />
@@ -30,7 +31,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <AboutUs />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <AboutUs />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",

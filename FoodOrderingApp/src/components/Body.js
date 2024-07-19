@@ -19,17 +19,17 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=24.5399253&lng=81.3261253"
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=24.5362477&lng=81.30369460000001"
     );
     const json = await data.json();
     console.log(json);
 
     setNewResList(
-      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+      json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setfilteredRestaurant(
-      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+      json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -52,11 +52,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex justify-center">
+        <div className="my-5 ">
           <input
+            className="m-1 py-0.5 px-3 border border-gray-900"
             type="text"
-            className="search-btn"
             placeholder="search here"
             value={searchTxt}
             onChange={(e) => {
@@ -64,6 +64,7 @@ const Body = () => {
             }}
           />
           <button
+            className="px-2 py-1 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white  hover:bg-red-900"
             onClick={() => {
               setfilteredRestaurant(
                 newResList.filter((res) =>
@@ -76,7 +77,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className=" m-5 px-4 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white font-bold hover:bg-red-900"
           onClick={() => {
             setfilteredRestaurant(
               newResList.filter((res) => res.info.avgRating >= 4.3)
@@ -86,7 +87,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[80%] m-auto">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}

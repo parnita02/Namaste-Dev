@@ -12,15 +12,20 @@ const RestaurantCard = (props) => {
     slaString,
   } = { ...resdata.info, ...resdata.info.sla };
   return (
-    <div className="res-card">
-      <img className="foodImage" src={CDN_URL + cloudinaryImageId} />
-      <div className="card-data">
-        <h3>{name}</h3>
-        <h4>{cuisines[0] + ", " + cuisines[1]}</h4>
-        <h4>{costForTwo}</h4>
-        <h5>{avgRating}</h5>
-        <h5>{areaName}</h5>
-        <h4>{slaString}</h4>
+    <div className=" pb-1 border border-gray-300 shadow-lg w-[220px] h-[280px] flex flex-col rounded-2xl hover:scale-105 ">
+      <img
+        className="p-0.1 w-[99%] h-[50%] mx-auto rounded-2xl"
+        src={CDN_URL + cloudinaryImageId}
+      />
+      <div className="px-2 py-2 ">
+        <h4 className="font-bold truncate ;	">{name}</h4>
+        <h4 className="font-light text-sm ">
+          {cuisines[0] + ", " + cuisines[1]}
+        </h4>
+        <h4 className="font-light text-sm ">{costForTwo}</h4>
+        <h5 className="font-light text-sm ">{avgRating}</h5>
+        <h5 className="font-light text-sm ">{areaName}</h5>
+        <h4 className="font-light text-sm ">{slaString}</h4>
       </div>
     </div>
   );
