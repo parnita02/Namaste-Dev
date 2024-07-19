@@ -25,11 +25,11 @@ const Body = () => {
     console.log(json);
 
     setNewResList(
-      json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setfilteredRestaurant(
-      json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+      json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -64,7 +64,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-2 py-1 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white  hover:bg-red-900"
+            className="px-2 py-1 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white  hover:bg-red-800 hover:scale-105"
             onClick={() => {
               setfilteredRestaurant(
                 newResList.filter((res) =>
@@ -77,7 +77,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className=" m-5 px-4 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white font-bold hover:bg-red-900"
+          className=" m-5 px-4 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white font-bold hover:bg-red-800 hover:scale-105"
           onClick={() => {
             setfilteredRestaurant(
               newResList.filter((res) => res.info.avgRating >= 4.3)

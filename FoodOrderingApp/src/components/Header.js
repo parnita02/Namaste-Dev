@@ -9,17 +9,17 @@ const Header = () => {
   return (
     <div className="flex justify-between shadow-lg mb-5 bg-gradient-to-r from-white to-yellow-200 w-screen">
       <div className="logo-container">
-        <img className="w-20 m-1" src={LOGO_URL} />
+        <img className="w-20 m-1 hover:scale-110" src={LOGO_URL} />
       </div>
       <div className="flex items-center">
         <ul className="flex px-1 m-3 gap-4 items-center">
-          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg">
+          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg hover:scale-105">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg">
+          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg hover:scale-105">
             <Link to="/about">AboutUs</Link>
           </li>
-          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg">
+          <li className="hover:bg-yellow-300 px-3 py-2 rounded-lg hover:scale-105">
             <Link to="/contact">ConatctUs</Link>
           </li>
           <li>
