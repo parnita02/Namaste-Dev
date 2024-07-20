@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -11,7 +11,9 @@ const Body = () => {
   const [filteredRestaurant, setfilteredRestaurant] = useState(newResList);
 
   const [searchTxt, setsearchTxt] = useState("");
-  console.log("body render");
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
+  console.log("body render", newResList);
 
   useEffect(() => {
     fetchData();
@@ -87,13 +89,17 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[80%] m-auto">
+      <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[92%] m-auto mt-2">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <RestaurantCard resdata={restaurant} />
+            {restaurant.info.promoted ? (
+              <RestaurantCardPromoted resdata={restaurant} />
+            ) : (
+              <RestaurantCard resdata={restaurant} />
+            )}
           </Link>
         ))}
       </div>

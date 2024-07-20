@@ -140,7 +140,7 @@ width: 98%;
    justify-content: center;
    align-items: center;
    margin: 100px;
-}
+}*/
 .shimmer-container{
 
     display: grid;
@@ -170,6 +170,7 @@ margin: 10px 0;
     height: 14px;
     background-color:rgb(234, 234, 234);
 }
+/*
 .filter{
     display: flex;
     justify-content: center;
@@ -210,8 +211,10 @@ margin: 10px 0;
     background-color: rgb(98, 98, 47);
     transform: scale(1.05);
     box-shadow: 1px 1px 5px black;
-}
-.restaurantMenuCard h2{
+}*/
+ .restaurantMenuCard h2{
+    font-weight: bold;
+    font-size:xx-large;
 margin:10px 39px;
 text-align: center;
 }
@@ -232,11 +235,11 @@ text-align: center;
     color: rgb(79, 79, 79);
     font-weight: lighter;
 }
-.restaurantMenuCardDetails h4, a{
+.restaurantMenuCardDetails h4{
     color: red;
     font-size: 11px;
     font-weight: bold;
-}
+} 
 .offer{
     margin: auto;
     width: 15%;
@@ -246,7 +249,7 @@ text-align: center;
     background: rgb(210, 210, 109);
     background: linear-gradient(90deg, rgba(210, 210, 109, 0.9321148825065274) 0%, rgba(255, 0, 0, 0) 100%);
 }
-.menu{
+.accordions{
     display: grid;
     width: 70%;
     margin: auto;
@@ -287,4 +290,4 @@ align-items: center;
     padding: 50px;
     background: rgb(210, 210, 109);
         background: linear-gradient(90deg, rgba(210, 210, 109, 0.9321148825065274) 0%, rgba(210, 206, 111, 0.6869565217391305) 6%, rgba(206, 136, 136, 0) 100%);
-} */
+} 

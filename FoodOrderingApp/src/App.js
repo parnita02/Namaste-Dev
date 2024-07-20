@@ -12,7 +12,7 @@ const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const AppLayout = () => {
   return (
-    <div className="app w-full">
+    <div className="app w-[100vw]">
       <Header />
       <Outlet />
       <Footer />
