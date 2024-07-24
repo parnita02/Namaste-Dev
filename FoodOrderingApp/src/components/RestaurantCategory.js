@@ -2,7 +2,7 @@ RestaurantCategory = ({ data }) => {
   // console.log(data);
   return (
     <div>
-      <div className="bg-gray-400">
+      <div>
         <span>{data.title}</span>
         <span>🔽</span>
       </div>
