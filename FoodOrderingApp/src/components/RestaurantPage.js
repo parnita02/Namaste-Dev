@@ -69,8 +69,11 @@ const RestaurantPage = () => {
         <RestaurantCategory
           key={index}
           data={category?.card?.card}
+          index={index}
           showItems={index == showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
+          setShowIndex={() =>
+            showIndex == index ? setShowIndex(null) : setShowIndex(index)
+          }
         />
       ))}
     </div>
