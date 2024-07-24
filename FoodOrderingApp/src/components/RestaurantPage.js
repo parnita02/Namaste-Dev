@@ -2,7 +2,7 @@ import Shimmer from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useRestaurantPage from "../utils/useRestaurantPage";
-import RestaurantCategory from "./REstaurantCategory.js";
+import RestaurantCategory from "./RestaurantCategory.js";
 
 const RestaurantPage = () => {
   const { resid } = useParams();
@@ -11,6 +11,8 @@ const RestaurantPage = () => {
   if (resMenuInfo == null) {
     return <Shimmer />;
   }
+
+  console.log(resMenuInfo);
   // destructuring
   const {
     name,
@@ -18,7 +20,7 @@ const RestaurantPage = () => {
     costForTwoMessage,
     avgRating,
     totalRatingsString,
-    aggregatedDiscountInfoV2,
+    aggregatedDiscountInfo,
   } = {
     ...resMenuInfo?.cards[2]?.card?.card?.info,
   };
@@ -36,13 +38,18 @@ const RestaurantPage = () => {
   // console.log(categories);
 
   return (
-    <div className="restaurantMenuCard">
-      <h2>{name}</h2>
-      <div className="offer">
-        <h3>{aggregatedDiscountInfoV2.header}</h3>
+    <div>
+      <h2 className="font-bold text-3xl my-2 mx-10 text-center">{name}</h2>
+      <div className="flex justify-center gap-x-5">
+        {aggregatedDiscountInfo.visible &&
+          aggregatedDiscountInfo.descriptionList.map((offer) => (
+            <div className=" w-[20%] p-2 rounded-md bg-gradient-to-r from-[rgba(210,210,109,0.9321148825065274)] to-[rgba(255,0,0,0)] ">
+              <h3>{offer.meta}</h3>
+            </div>
+          ))}
       </div>
-      <div className="restaurantMenuCardDetail">
-        <h4>
+      <div className="flex flex-col p-2 w-1/2 h-1/5 my-4 mx-auto border border-gray-300 rounded-lg gap-1 shadow-[1px_1px_30px_rgb(181,181,181)] text-s">
+        <h4 className="text-red-500 text-xs font-bold">
           <Link className="text-red-600 underline font-bold" to="">
             {cuisines.join(", ")}
           </Link>
@@ -52,12 +59,11 @@ const RestaurantPage = () => {
         <h6>{totalRatingsString}</h6>
       </div>
 
-      <h2>Menu</h2>
-      <div className="accordions">
-        {categories.map((category) => (
-          <RestaurantCategory data={category?.card?.card} />
-        ))}
-      </div>
+      <h2 className="text-center font-bold text-2xl">Menu</h2>
+
+      {categories.map((category, index) => (
+        <RestaurantCategory key={index} data={category?.card?.card} />
+      ))}
     </div>
   );
 };
