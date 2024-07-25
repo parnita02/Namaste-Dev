@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import cartlogo from "../cartlogo.png";
-import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { LOGO_URL } from "../utils/Constants";
+import { useState, useContext } from "react";
+import UserContext from "../utils/UserContext";
+import useOnlineStatus from "../utils/UseOnlineStatus";
 
 const Header = () => {
   const [navBtn, setnavBtn] = useState("login");
+  const onlineStatus = useOnlineStatus();
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="flex justify-between shadow-lg mb-3 bg-gradient-to-r from-white to-yellow-100 w-screen p-1">
@@ -25,7 +29,7 @@ const Header = () => {
           <li>
             <img className="w-7 hover:w-8" src={cartlogo} />
           </li>
-          <li className="px-3 py-2">
+          <li className="px-3 py-2 flex">
             <button
               className="bg-yellow-500 px-3 py-1 shadow-gray-700 shadow-md rounded-md text-white hover:bg-yellow-600 hover:scale-105"
               onClick={() =>
@@ -34,7 +38,12 @@ const Header = () => {
             >
               {navBtn}
             </button>
+
+            <span className="absolute [text-shadow:1px_1px_20px_var(--tw-shadow-color)] shadow-white ml-12 mt-4 ">
+              {onlineStatus ? "🟢" : "🔴"}
+            </span>
           </li>
+          <li className="font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

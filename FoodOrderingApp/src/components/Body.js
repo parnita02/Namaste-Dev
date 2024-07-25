@@ -1,9 +1,10 @@
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 // import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   //Local state variable-Super Powerful variable for that we use hooks
@@ -14,6 +15,8 @@ const Body = () => {
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   console.log("body render", newResList);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -88,6 +91,15 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <div className="ml-10">
+          <span>username : </span>
+          <input
+            className="border border-black my-6 p-1"
+            type="text"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
       </div>
       <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[92%] m-auto mt-2">
         {filteredRestaurant.map((restaurant) => (

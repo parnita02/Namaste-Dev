@@ -8,7 +8,6 @@ import { useState } from "react";
 const RestaurantPage = () => {
   const { resid } = useParams();
   const resMenuInfo = useRestaurantPage(resid);
-
   const [showIndex, setShowIndex] = useState(0);
 
   if (resMenuInfo == null) {
@@ -46,7 +45,10 @@ const RestaurantPage = () => {
       <div className="flex justify-center gap-x-5">
         {aggregatedDiscountInfo.visible &&
           aggregatedDiscountInfo.descriptionList.map((offer) => (
-            <div className=" w-[20%] p-2 rounded-md bg-gradient-to-r from-[rgba(210,210,109,0.9321148825065274)] to-[rgba(255,0,0,0)] ">
+            <div
+              key={offer.meta}
+              className=" w-[20%] p-2 rounded-md bg-gradient-to-r from-[rgba(210,210,109,0.9321148825065274)] to-[rgba(255,0,0,0)] "
+            >
               <h3>{offer.meta}</h3>
             </div>
           ))}
@@ -67,16 +69,17 @@ const RestaurantPage = () => {
       {categories.map((category, index) => (
         // controlled component
         <RestaurantCategory
-          key={index}
+          key={category?.card?.card?.title}
           data={category?.card?.card}
-          index={index}
-          showItems={index == showIndex ? true : false}
-          setShowIndex={() =>
-            showIndex == index ? setShowIndex(null) : setShowIndex(index)
+          showItems={index == showIndex ? true : false} //property for particular index data to be shown only
+          setShowIndex={
+            () =>
+              showIndex == index ? setShowIndex(null) : setShowIndex(index) //altering my show index
           }
         />
       ))}
     </div>
   );
 };
+
 export default RestaurantPage;

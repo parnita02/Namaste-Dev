@@ -1,10 +1,7 @@
-import { useState } from "react";
 import ItemList from "./ItemList";
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
-  // const [infoBtn, setInfoBtn] = useState("🔽");
   const handleClick = () => {
-    // infoBtn == "🔼" ? setInfoBtn("🔽") : setInfoBtn("🔼");
     setShowIndex();
   };
 
@@ -18,7 +15,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
           <span className="font-bold">
             {data.title} ({data.itemCards.length})
           </span>
-          <span>🔽</span>
+          <span>{showItems ? "🔼" : "🔽"}</span>
         </div>
         {showItems && <ItemList items={data?.itemCards} />}
       </div>
