@@ -27,3 +27,12 @@ a callback function with the dependency array
 
 -> Client Side Routing
 -> server side routing
+
+# Redux Toolkit
+
+    -install libraries-@reduxjs/toolkit and react-redux
+    -build our store
+    -connect store to app
+    -create a cart slice
+    -dispatch an action
+    -read data using selector

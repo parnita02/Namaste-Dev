@@ -4,11 +4,15 @@ import { LOGO_URL } from "../utils/Constants";
 import { useState, useContext } from "react";
 import UserContext from "../utils/UserContext";
 import useOnlineStatus from "../utils/UseOnlineStatus";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [navBtn, setnavBtn] = useState("login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+
+  //subscribing to the store using a selector, which is a hook of react
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between shadow-lg mb-3 bg-gradient-to-r from-white to-yellow-100 w-screen p-1">
@@ -26,10 +30,16 @@ const Header = () => {
           <li className="hover:bg-yellow-200 px-1 py-0.5 rounded-lg hover:scale-105 sm:px-3 sm:py-1">
             <Link to="/contact">ContactUs</Link>
           </li>
-          <li>
-            <img className="w-7 hover:w-8" src={cartlogo} />
+          <li className="flex hover:scale-125">
+            <img className="w-7 " src={cartlogo} />
+            <div className="flex items-center justify-center absolute ml-5">
+              {" "}
+              <div className="text-xs rounded-full bg-red-500 text-white px-1">
+                {cartItems.length}
+              </div>
+            </div>
           </li>
-          <li className="px-3 py-2 flex">
+          <li className="px-3 py-2 flex ">
             <button
               className="bg-yellow-500 px-3 py-1 shadow-gray-700 shadow-md rounded-md text-white hover:bg-yellow-600 hover:scale-105"
               onClick={() =>

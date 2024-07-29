@@ -1,8 +1,9 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/Constants";
+import { addItems } from "../utils/cartSlice";
 const ItemList = ({ items }) => {
-  // console.log(items);
+  const dispatch = useDispatch();
 
-  //   const { name, id, description, price } = { ...items?.card?.info };
   return (
     <div>
       {items.map((item) => (
@@ -28,7 +29,13 @@ const ItemList = ({ items }) => {
               />
             )}
             <div className="absolute">
-              <button className="px-3 py-0.5 text-green-600 font-bold bg-white rounded-lg shadow-lg hover:scale-105 ">
+              <button
+                className="px-3 py-0.5 text-green-600 font-bold bg-white rounded-lg shadow-lg hover:scale-105 "
+                onClick={() => {
+                  // dispath and action
+                  dispatch(addItems("pizza"));
+                }}
+              >
                 Add+
               </button>
             </div>

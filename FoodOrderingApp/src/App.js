@@ -9,7 +9,11 @@ import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantPage from "./components/RestaurantPage";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+
 const AboutUs = lazy(() => import("./components/AboutUs"));
+
 const AppLayout = () => {
   const [userName, setUserName] = useState();
   useEffect(() => {
@@ -18,13 +22,15 @@ const AppLayout = () => {
   }, []);
   console.log(userName);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="w-[100vw]">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="w-[100vw]">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
