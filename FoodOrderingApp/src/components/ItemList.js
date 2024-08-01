@@ -20,10 +20,10 @@ const ItemList = ({ items }) => {
               <p>{item.card.info.description}</p>
             </div>
           </div>
-          <div className="w-3/12 py-5 xl:px-14  flex justify-center ">
+          <div className="w-3/12 py-5 xl:px-14 flex justify-center ">
             {item.card.info.imageId && (
               <img
-                className="w-full  rounded-xl h-28"
+                className="w-full rounded-xl h-28"
                 src={CDN_URL + item.card.info.imageId}
                 alt={item.card.info.name}
               />
@@ -33,7 +33,8 @@ const ItemList = ({ items }) => {
                 className="px-3 py-0.5 text-green-600 font-bold bg-white rounded-lg shadow-lg hover:scale-105 "
                 onClick={() => {
                   // dispath and action
-                  dispatch(addItems("pizza"));
+                  dispatch(addItems(item));
+                  // alert("added to cart!");
                 }}
               >
                 Add+

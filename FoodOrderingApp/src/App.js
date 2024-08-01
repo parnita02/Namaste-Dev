@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import CartPage from "./components/CartPage";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { lazy, useState } from "react";
 import ContactUs from "./components/ContactUs";
@@ -20,11 +21,11 @@ const AppLayout = () => {
     const data = { name: "Parnita Dwivedi" };
     setUserName(data.name);
   }, []);
-  console.log(userName);
+  // console.log(userName);
   return (
     <Provider store={appStore}>
       <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-        <div className="w-[100vw]">
+        <div className="w-screen">
           <Header />
           <Outlet />
           <Footer />
@@ -58,6 +59,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resid",
         element: <RestaurantPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
     errorElement: <Error />,

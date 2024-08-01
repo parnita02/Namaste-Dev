@@ -57,8 +57,8 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="flex justify-center">
-        <div className="my-5 ">
+      <div className="flex justify-center items-center m-auto w-[90%] gap-x-10 flex-wrap gap-y-4 mt-6 mb-8">
+        <div>
           <input
             className="m-1 py-0.5 px-3 border border-gray-900"
             type="text"
@@ -81,20 +81,22 @@ const Body = () => {
             search
           </button>
         </div>
-        <button
-          className=" m-5 px-4 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white font-bold hover:bg-red-800 hover:scale-105"
-          onClick={() => {
-            setfilteredRestaurant(
-              newResList.filter((res) => res.info.avgRating >= 4.3)
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-        <div className="ml-10">
+        <div>
+          <button
+            className=" px-3 py-1 shadow-gray-500 shadow-md rounded-full bg-red-600 text-white hover:bg-red-800 hover:scale-105"
+            onClick={() => {
+              setfilteredRestaurant(
+                newResList.filter((res) => res.info.avgRating >= 4.3)
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div>
           <span>username : </span>
           <input
-            className="border border-black my-6 p-1"
+            className="border border-black p-1"
             type="text"
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}

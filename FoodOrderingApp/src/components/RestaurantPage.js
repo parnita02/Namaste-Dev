@@ -41,13 +41,13 @@ const RestaurantPage = () => {
 
   return (
     <div>
-      <h2 className="font-bold text-3xl my-2 mx-10 text-center">{name}</h2>
+      <h2 className="font-bold text-3xl my-10 mx-10 text-center">{name}</h2>
       <div className="flex justify-center gap-x-5">
         {aggregatedDiscountInfo.visible &&
           aggregatedDiscountInfo.descriptionList.map((offer) => (
             <div
               key={offer.meta}
-              className=" w-[20%] p-2 rounded-md bg-gradient-to-r from-[rgba(210,210,109,0.9321148825065274)] to-[rgba(255,0,0,0)] "
+              className=" w-[30%] p-2 rounded-md mb-6 text-xs bg-gradient-to-r from-[rgba(210,210,109,50)] to-[rgba(255,0,0,0)] "
             >
               <h3>{offer.meta}</h3>
             </div>
