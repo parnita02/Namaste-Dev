@@ -5,6 +5,8 @@ import { clearCart, removeItems } from "../utils/CartSlice";
 const CartPage = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
+  console.log(cartItems);
+
   return (
     <div>
       <div className="w-[60%] m-auto my-7">
@@ -44,6 +46,22 @@ const CartPage = () => {
             </button>
           )}
         </div>
+        {cartItems.length > 0 && (
+          <div className="w-full h-[0.1rem] bg-black my-8 ml-2"></div>
+        )}
+        {cartItems.length > 0 && (
+          <div className="flex justify-between">
+            <h1 className="font-semibold text-lg ml-8">TOTAL PRICE TO PAY</h1>
+            <span className="mr-8 font-bold text-lg">
+              &#8377;
+              {cartItems.reduce((accumulator, current) => {
+                console.log(accumulator);
+
+                return accumulator + current.card.info.price / 100;
+              }, 0)}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

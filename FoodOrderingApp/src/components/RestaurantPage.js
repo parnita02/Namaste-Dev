@@ -85,8 +85,9 @@ const RestaurantPage = () => {
           </div>
           <h6 className="ml-2 text-sm">({totalRatingsString})</h6>
         </div>
-        <h5 className="text-xs font-semibold text-gray-600">{areaName}</h5>
-        <h4 className="text-sm ">{slaString}</h4>
+        <h5 className="text-xs font-semibold">{areaName}</h5>
+        <div className="w-[0.1rem] h-10 bg-gray-400 ml-2"></div>
+        <h4 className="text-xs font-semibold">{slaString}</h4>
       </div>
 
       <h2 className="text-center font-bold text-2xl">Menu</h2>
