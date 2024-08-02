@@ -6,3 +6,6 @@ export const LOGO_URL =
 
 export const MENU_API =
   "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=24.5362477&lng=81.30369460000001&restaurantId=";
+
+export const RATING_LOGO =
+  "https://img.freepik.com/premium-vector/flat-golden-star-icon-universal-golden-star-icon-use-web-mobile-ui-isolated-vector-illustration_96318-19610.jpg";

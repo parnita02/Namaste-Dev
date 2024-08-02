@@ -1,4 +1,4 @@
-import { CDN_URL } from "../utils/constants";
+import { CDN_URL, RATING_LOGO } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resdata } = props;
@@ -20,13 +20,17 @@ const RestaurantCard = (props) => {
       />
       <div className="px-2 py-2 ">
         <h4 className="font-bold truncate ;	">{name}</h4>
-        <h4 className="font-light text-sm ">
+        <h4 className="text-xs font-bold ">
           {cuisines[0] + ", " + cuisines[1]}
         </h4>
-        <h4 className="font-light text-sm ">{costForTwo}</h4>
-        <h5 className="font-light text-sm ">{avgRating}</h5>
-        <h5 className="font-light text-sm ">{areaName}</h5>
-        <h4 className="font-light text-sm ">{slaString}</h4>
+        <h5 className="text-sm ">{costForTwo}</h5>
+        <div className="flex items-center">
+          <h1 className="font-light text-sm">{avgRating}</h1>
+          <img className="w-6" src={RATING_LOGO} alt="Rating Logo" />
+        </div>
+
+        <h5 className="text-xs font-semibold text-gray-600">{areaName}</h5>
+        <h4 className="text-xs font-semibold text-gray-600 ">{slaString}</h4>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const Body = () => {
       "https://www.swiggy.com/mapi/homepage/getCards?lat=24.5362477&lng=81.30369460000001"
     );
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
 
     setNewResList(
       json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
@@ -103,7 +103,7 @@ const Body = () => {
           />
         </div>
       </div>
-      <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[92%] m-auto mt-2">
+      <div className="grid gap-8 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[92%] m-auto mt-2">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}
