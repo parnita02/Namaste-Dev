@@ -9,3 +9,5 @@ export const MENU_API =
 
 export const RATING_LOGO =
   "https://img.freepik.com/premium-vector/flat-golden-star-icon-universal-golden-star-icon-use-web-mobile-ui-isolated-vector-illustration_96318-19610.jpg";
+export const CART_URL =
+  "https://png.pngtree.com/png-vector/20220607/ourmid/pngtree-flat-vector-icon-concept-of-light-bulb-inside-shopping-cart-on-png-image_4861728.png";

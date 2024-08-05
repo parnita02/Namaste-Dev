@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import cartlogo from "../cartlogo.png";
+import { CART_URL } from "../utils/Constants";
 import { LOGO_URL } from "../utils/Constants";
 import { useState, useContext } from "react";
 import UserContext from "../utils/UserContext";
@@ -21,9 +21,9 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between shadow-lg mb-3 bg-gradient-to-r from-white to-yellow-100 w-screen p-1">
+    <div className="flex justify-between shadow-lg mb-3 bg-gradient-to-r from-white to-[rgb(244,224,0)] w-screen p-1">
       <div className="logo-container">
-        <img className="w-20 hover:scale-105" src={LOGO_URL} />
+        <img className="w-20 h-full hover:scale-10" src={LOGO_URL} />
       </div>
 
       <div className="flex items-center">
@@ -61,12 +61,12 @@ const Header = () => {
             <Link to="/contact">ContactUs</Link>
           </li>
           <li className="hover:scale-125">
-            <Link to="/cart" className="flex justify-center">
-              <img className="w-7 " src={cartlogo} />
+            <Link to="/cart" className="flex">
+              <img className="w-12 " src={CART_URL} />
               {cartItems.length > 0 && (
-                <div className="flex items-center justify-center absolute ml-5">
+                <div className="flex items-center absolute ml-8">
                   {" "}
-                  <div className="text-xs rounded-full bg-red-500 text-white px-1">
+                  <div className="text-xs rounded-full bg-red-500 text-white py-[0.05rem] px-[0.33rem]">
                     {cartItems.length}
                   </div>
                 </div>

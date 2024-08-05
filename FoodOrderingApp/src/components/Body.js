@@ -14,7 +14,7 @@ const Body = () => {
   const [searchTxt, setsearchTxt] = useState("");
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
-  console.log("body render", newResList);
+  // console.log("body render", newResList);
 
   const { loggedInUser, setUserName } = useContext(UserContext);
 
@@ -57,10 +57,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="flex justify-center items-center m-auto w-[90%] gap-x-10 flex-wrap gap-y-4 mt-6 mb-8">
-        <div>
+      <div className=" m-auto w-[90%] gap-x-10 flex-wrap gap-y-4 mt-6 mb-8">
+        <div className="flex gap-x-1 mb-5">
           <input
-            className="m-1 py-0.5 px-3 border border-gray-900"
+            className="rounded-md py-0.5 px-3 w-11/12 border border-gray-400"
             type="text"
             placeholder="search here"
             value={searchTxt}
@@ -69,7 +69,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-2 py-1 shadow-gray-500 shadow-md rounded-md bg-red-600 text-white  hover:bg-red-800 hover:scale-105"
+            className="px-2 py-0.5 shadow-gray-500 shadow-md rounded-md bg-[#b03f3f] text-white  hover:bg-red-800 hover:scale-105"
             onClick={() => {
               setfilteredRestaurant(
                 newResList.filter((res) =>
@@ -81,29 +81,34 @@ const Body = () => {
             search
           </button>
         </div>
+
+        <div className="flex justify-between items-center mx-5 mb-4">
+          <p className="ml-2 font-semibold ">Welcome to your food villa!!</p>
+
+          <div className="flex flex-col text-xs">
+            <span>username : </span>
+            <input
+              className="border border-black p-1"
+              type="text"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
+        </div>
         <div>
           <button
-            className=" px-3 py-1 shadow-gray-500 shadow-md rounded-full bg-red-600 text-white hover:bg-red-800 hover:scale-105"
+            className="font-semibold mx-10 px-3 py-2 text-sm shadow-gray-500 shadow-md rounded-md bg-[#c54141] text-white hover:bg-red-800 hover:scale-105"
             onClick={() => {
               setfilteredRestaurant(
                 newResList.filter((res) => res.info.avgRating >= 4.3)
               );
             }}
           >
-            Top Rated Restaurants
+            Top Rated
           </button>
         </div>
-        <div>
-          <span>username : </span>
-          <input
-            className="border border-black p-1"
-            type="text"
-            value={loggedInUser}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div>
       </div>
-      <div className="grid gap-8 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[92%] m-auto mt-2">
+      <div className="grid gap-x-14 gap-y-5 grid-cols-[repeat(auto-fit,minmax(220px,100px))] justify-center w-[85%] mx-auto">
         {filteredRestaurant.map((restaurant) => (
           <Link
             key={restaurant.info.id}

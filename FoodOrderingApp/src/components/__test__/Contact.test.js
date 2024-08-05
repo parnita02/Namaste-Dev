@@ -1,8 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, decribe } from "@testing-library/react";
 import ContactUs from "../ContactUs";
 import "@testing-library/jest-dom";
 
-decribe("constcat us page test cases", () => {
+describe("contact us page test cases", () => {
   test("should load contact us component", () => {
     render(<ContactUs />); //rendered to the js dom
 
